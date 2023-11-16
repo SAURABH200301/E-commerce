@@ -1,0 +1,36 @@
+<div class="m-5 row">
+    <div class="col-md-6   rounded-2 p-3">
+        <img class=" shadow rounded" [src]="productDetails.images[0]" [alt]="productDetails">
+    </div>
+    <div class="col-md-6">
+        <div class="m-5">
+            <div class="d-flex justify-content-between">
+                <p>{{productDetails.brand}}</p>
+                <span class="mt-2">
+                    <span (click)="getLiked()" *ngIf="!liked"><i class="bi bi-heart h5"></i></span>
+                    <span (click)="getLiked()" *ngIf="liked"><i class="bi bi-heart-fill h5"
+                            style="color: red;"></i></span>
+                </span>
+            </div>
+            <p>{{productDetails.title}}</p>
+            <app-rating [rating]="productDetails.rating"></app-rating>
+            <p class="">
+                <span
+                    class="me-2 fw-bolder">{{productDetails.price-(productDetails.price*productDetails.discountPercentage/100)|
+                    currency: 'USD':
+                    'symbol':'1.2-2' }}</span>
+                <span style="color: grey; font-size: 12px;"><s>{{productDetails.price| currency: 'USD': 'symbol':'1.2-2'
+                        }}</s></span>
+            </p>
+            <span class="rounded-2 p-2 shadow-sm fw-bold"
+                style="font-size: 12px; color:#03753c; background-color: #adeacc;">
+                {{productDetails.discountPercentage/100|percent}} OFF
+            </span>
+            <h5 *ngIf="productDetails.stock<=5"> Only {{productDetails.stock}} Left</h5>
+            <div class="mt-lg-5">
+                <button class="btn btn-outline-secondary w-100 fw-bold rounded-5" (click)="addCart(productDetails)"> Add
+                    To Cart</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.pointer{
+    cursor: pointer;
+}
+
+.minusBtn{
+    border: 1px solid grey;
+    border-width: 2px;
+    color: grey;
+    width: 45px;
+    height: 45px;
+}
+.minusBtn:hover{
+    background-color: grey;
+    color: white;
+}
+
+.gotHover:hover{
+    box-shadow: 0px 0px 2px black;
+}

@@ -1,0 +1,11 @@
+<div class="row m-3">
+    <div class="col-md-3 ">
+        <div class="position-fixed ">
+            <app-toast ></app-toast>
+            <app-side-bar (optionChange)="onCategoryChange($event)"></app-side-bar>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <app-home [products]="products"></app-home>
+    </div>
+</div>

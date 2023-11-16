@@ -1,0 +1,40 @@
+<div class="shadow rounded-4 mt-2">
+    <div class="d-flex flex-column m-3">
+        <a class="text-decoration-none text-black" [routerLink]="'details/' + product.id">
+            <div class="d-flex flex-column justify-content-around m-2 px-4">
+
+                <img class="rounded"
+                    [src]="product.images[3] ||product.images[2]||product.images[1]|| '/assets/placeholder.jpg'">
+                <div class="">
+                    <p><i>{{product.title}}</i></p>
+                    <div class="mt-2">
+                        <app-rating [rating]="product.rating"></app-rating>
+                    </div>
+                    <p class="">
+                        <span class="me-2 fw-bolder">{{product.price-(product.price*product.discountPercentage/100)|
+                            currency: 'USD':
+                            'symbol':'1.2-2' }}</span>
+                        <span style="color: grey; font-size: 12px;"><s>{{product.price| currency: 'USD':
+                                'symbol':'1.2-2' }}</s></span>
+                    </p>
+                    <span class="rounded-2 p-2 shadow-sm fw-bold"
+                        style="font-size: 12px; color:#03753c; background-color: #adeacc;">{{product.discountPercentage/100|percent}}
+                        OFF
+                    </span>
+                    
+                </div>
+            </div>
+        </a>
+        <div class="d-flex justify-content-between p-3">
+            <button class="btn btn-outline-secondary fw-bold shadow rounded-4  " (click)="addItem(product)">
+                <div class="p-0 m-0 d-flex flex-row justify-content-between  ">
+                    <span>Add To Cart</span>
+                </div>
+            </button>
+            <span class="mt-2">
+                <span (click)="getLiked()" *ngIf="!liked"><i class="bi bi-heart "></i></span>
+                <span (click)="getLiked()" *ngIf="liked"><i class="bi bi-heart-fill h5" style="color: red;"></i></span>
+            </span>
+        </div>
+    </div>
+</div>

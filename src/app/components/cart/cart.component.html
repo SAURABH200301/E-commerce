@@ -1,0 +1,65 @@
+<div class="m-4">
+    <div class="d-flex justify-content-center">
+        <h2 class="mx-2">My Cart</h2>
+        <i class="bi bi-bag h2 text-black"></i>
+    </div>
+    <div class="d-flex justify-content-center" *ngIf="product.length===0">No Item added</div>
+    <div class="row" *ngIf="product.length!==0">
+        <div class="col-md-4 h-100">
+            <div class="position-fixed w-25 border rounded-4 p-3 m-3">
+                <div class="m-2  p-3 m-3">
+                    <p class="fw-bold border-bottom align-items-center">Payment Details</p>
+                    <p class="py-2 justify-content-between d-flex">
+                        <span>MRP Total</span>
+                        <span class="fw-bold">
+                            {{totalAmount | currency: 'USD': 'symbol':'1.2-2' }}
+                        </span>
+                    </p>
+                    <p class="py-2 justify-content-between d-flex">
+                        <span>Products Discount</span>
+                        <span class="fw-bold text-success"> -{{discount | currency: 'USD': 'symbol':'1.2-2' }}</span>
+                    </p>
+                    <p class="py-2 justify-content-between d-flex">
+                        <span>Delivery Fee</span>
+                        <span class="fw-bold"> 40</span>
+                    </p>
+                    <p class="py-2 justify-content-between d-flex">
+                        <span>Total</span>
+                        <span class="fw-bold">
+                            {{payableAmount+40 | currency: 'USD': 'symbol':'1.2-2' }}
+                        </span>
+                    </p>
+                </div>
+                <button class="btn border rounded-5 btn-success w-100 ">Order Now</button>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="m-4 row border p-2 rounded gotHover" *ngFor="let item of product">
+                <div class="col-sm-6 p-3 pointer border-end d-flex justify-content-center"
+                    [routerLink]="['/details/'+item.id]">
+                    <img style="width: 220px;" [src]="item.images[0]" [alt]="item.title">
+                </div>
+                <div class="col-sm-6 py-3 ">
+                    <div class="pointer" [routerLink]="['/details/'+item.id]">
+                        <p class="fw-bold">{{item.title}}</p>
+                        <p><i>{{item.brand}}</i></p>
+                        <p>{{item.description}}</p>
+                        <app-rating [rating]="item.rating"></app-rating>
+                        <p class="">
+                            <span class="me-2 fw-bolder">{{item.price-(item.price*item.discountPercentage/100)|
+                                currency: 'USD':
+                                'symbol':'1.2-2' }}</span>
+                            <span style="color: grey; font-size: 12px;"><s>{{item.price| currency: 'USD':
+                                    'symbol':'1.2-2' }}</s></span>
+                        </p>
+                    </div>
+                    <div>
+                        <button (click)="decItem(item.id)" class="btn minusBtn rounded-5 fw-bold fs-5 me-2">-</button>
+                        <span class="border rounded p-2">{{item.quantity}}</span>
+                        <button (click)="incItem(item)" class="btn minusBtn rounded-5 fw-bold fs-5 ms-2">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
