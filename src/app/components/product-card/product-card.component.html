@@ -1,4 +1,4 @@
-<div class="shadow rounded-4 mt-2">
+<div class="border rounded-4 mt-2 overHover">
     <div class="d-flex flex-column m-3">
         <a class="text-decoration-none text-black" [routerLink]="'details/' + product.id">
             <div class="d-flex flex-column justify-content-around m-2 px-4">
@@ -10,23 +10,23 @@
                     <div class="mt-2">
                         <app-rating [rating]="product.rating"></app-rating>
                     </div>
-                    <p class="">
+                    <div class="">
                         <span class="me-2 fw-bolder">{{product.price-(product.price*product.discountPercentage/100)|
                             currency: 'USD':
                             'symbol':'1.2-2' }}</span>
                         <span style="color: grey; font-size: 12px;"><s>{{product.price| currency: 'USD':
                                 'symbol':'1.2-2' }}</s></span>
-                    </p>
-                    <span class="rounded-2 p-2 shadow-sm fw-bold"
-                        style="font-size: 12px; color:#03753c; background-color: #adeacc;">{{product.discountPercentage/100|percent}}
-                        OFF
-                    </span>
-                    
+
+                        <span class=" ms-2 rounded-2 p-2 shadow-sm fw-bold"
+                            style="font-size: 12px; color:#03753c; background-color: #adeacc;">{{product.discountPercentage/100|percent}}
+                            OFF
+                        </span>
+                    </div>
                 </div>
             </div>
         </a>
         <div class="d-flex justify-content-between p-3">
-            <button class="btn btn-outline-secondary fw-bold shadow rounded-4  " (click)="addItem(product)">
+            <button class="btn btn-outline-secondary fw-bold rounded-4 button" (click)="addItem(product)">
                 <div class="p-0 m-0 d-flex flex-row justify-content-between  ">
                     <span>Add To Cart</span>
                 </div>

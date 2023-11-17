@@ -1,14 +1,12 @@
-<div class="shadow p-4 rounded-4 ">
-    <!-- <div class="position-fixed "> -->
-        <h3 class="fw-bolder">Category</h3>
-        <div class="my-4">
-            <div class="form-check" *ngFor="let option of options">
-                <input class="form-check-input" type="checkbox" id="{{option.id}}" [(ngModel)]="option.isChecked"
-                    (ngModelChange)="fetchCategoryData(option)">
-                <label class="form-check-label" for="{{option.id}}">
-                    {{option.name | titlecase}}
-                </label>
-            </div>
+<div class="border p-4 rounded-4 ">
+    <h3 class="fw-bolder">Category</h3>
+    <div class="my-4">
+        <div class="form-check" *ngFor="let option of options">
+            <input class="form-check-input" type="checkbox" id="{{option.id}}" [(ngModel)]="option.isChecked"
+                (ngModelChange)="fetchCategoryData(option)">
+            <label class="form-check-label" for="{{option.id}}">
+                {{option.name | titlecase}}
+            </label>
         </div>
-    <!-- </div> -->
+    </div>
 </div>

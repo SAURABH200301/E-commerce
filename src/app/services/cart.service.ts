@@ -8,7 +8,7 @@ export class CartService {
   totalAmount: number = 0;
   discountAmount: number = 0;
   visible: boolean = false;
-  totalQuantity:number=0;
+  totalQuantity: number = 0;
   constructor() {
     console.log(this.addedProducts)
   }
@@ -17,22 +17,22 @@ export class CartService {
   addTocart(product: any) {
     let found = this.addedProducts.find((ele: any) => ele.id === product.id)
     console.log("found: ", found)
-    this.visible=true;
+    this.visible = true;
     if (found === undefined) {
       let newProduct = { ...product, quantity: 1 };
       this.totalAmount += newProduct.price;
       this.discountAmount += (newProduct.price) * newProduct.discountPercentage / 100;
       this.addedProducts.push(newProduct);
-      this.totalQuantity=1;
+      this.totalQuantity += 1;
     } else {
       found.quantity++;
       this.totalQuantity++;
       this.totalAmount += found.price;
       this.discountAmount += found.price * found.discountPercentage / 100;
     }
-    setInterval(()=>{
-      this.visible=false;
-    },3000);
+    setInterval(() => {
+      this.visible = false;
+    }, 3000);
   }
 
 
@@ -40,10 +40,9 @@ export class CartService {
     let found = this.addedProducts.find((ele: any) => ele.id === id)
     if (found.quantity == 1) {
       this.removeItemFromCart(id);
-      this.totalQuantity--;
     } else {
-      found.quantity--;
       this.totalQuantity--;
+      found.quantity--;
       this.totalAmount -= found.price;
       this.discountAmount -= found.price * found.discountPercentage / 100;
     }

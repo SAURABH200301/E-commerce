@@ -29,6 +29,11 @@
                             {{payableAmount+40 | currency: 'USD': 'symbol':'1.2-2' }}
                         </span>
                     </p>
+                    <div class="border w-100"></div>
+                    <p class="py-2 justify-content-between d-flex">
+                        <span>Total quantity</span>
+                        <span>{{totalQuantity}}</span>
+                    </p>
                 </div>
                 <button class="btn border rounded-5 btn-success w-100 ">Order Now</button>
             </div>
@@ -54,9 +59,9 @@
                         </p>
                     </div>
                     <div>
-                        <button (click)="decItem(item.id)" class="btn minusBtn rounded-5 fw-bold fs-5 me-2">-</button>
+                        <button (click)="decItem(item.id)" class="btn minusBtn rounded-5 fw-bold fs-4 me-2">-</button>
                         <span class="border rounded p-2">{{item.quantity}}</span>
-                        <button (click)="incItem(item)" class="btn minusBtn rounded-5 fw-bold fs-5 ms-2">+</button>
+                        <button (click)="incItem(item)" class="btn minusBtn rounded-5 fw-bold fs-4 ms-2">+</button>
                     </div>
                 </div>
             </div>

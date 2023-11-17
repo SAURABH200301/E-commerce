@@ -11,9 +11,11 @@ export class CartComponent {
   totalAmount:number=0;
   discount:number=0;
   payableAmount:number=0;
+  totalQuantity:number=0;
   constructor(private cart: CartService){
     this.getData();
-    console.log(this.cart.addedProducts)
+    this.totalQuantity=this.cart.totalQuantity;
+    // console.log(this.cart.addedProducts)
   }
   getData(){
     this.product=this.cart.addedProducts;
@@ -23,10 +25,12 @@ export class CartComponent {
   }
   decItem(id:any){
     this.cart.decreaseQuantity(id);
+    this.totalQuantity=this.cart.totalQuantity;
     this.getData();
   }
   incItem(item:any){
     this.cart.addTocart(item);
+    this.totalQuantity=this.cart.totalQuantity;
     this.getData();
   }
 }

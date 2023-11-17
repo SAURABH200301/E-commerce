@@ -13,19 +13,28 @@
                 </span>
             </div>
             <p>{{productDetails.title}}</p>
+            <div>
+                <p>{{productDetails.description}}</p>
+            </div>
             <app-rating [rating]="productDetails.rating"></app-rating>
-            <p class="">
+            <div class="">
                 <span
                     class="me-2 fw-bolder">{{productDetails.price-(productDetails.price*productDetails.discountPercentage/100)|
                     currency: 'USD':
-                    'symbol':'1.2-2' }}</span>
-                <span style="color: grey; font-size: 12px;"><s>{{productDetails.price| currency: 'USD': 'symbol':'1.2-2'
-                        }}</s></span>
-            </p>
-            <span class="rounded-2 p-2 shadow-sm fw-bold"
-                style="font-size: 12px; color:#03753c; background-color: #adeacc;">
-                {{productDetails.discountPercentage/100|percent}} OFF
-            </span>
+                    'symbol':'1.2-2' }}
+                </span>
+                <span class="ms-2 rounded-2 p-2 shadow-sm fw-bold"
+                    style="font-size: 12px; color:#03753c; background-color: #adeacc;">
+                    {{productDetails.discountPercentage/100|percent}} OFF
+                </span>
+                <div style="color: grey; font-size: 12px;" class="mt-2">
+                    <s class="me-1">{{productDetails.price| currency: 'USD': 'symbol':'1.2-2'
+                        }}
+                    </s>(Incl. of all taxes)
+                </div>
+
+
+            </div>
             <h5 *ngIf="productDetails.stock<=5"> Only {{productDetails.stock}} Left</h5>
             <div class="mt-lg-5">
                 <button class="btn btn-outline-secondary w-100 fw-bold rounded-5" (click)="addCart(productDetails)"> Add
