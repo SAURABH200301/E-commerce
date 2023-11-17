@@ -7,8 +7,7 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./toast.component.css']
 })
 export class ToastComponent {
-  toastVisible: boolean = false;
-  constructor(private cart: CartService) {
-    this.toastVisible=this.cart.visible
+  
+  constructor(public cart: CartService) {
   }
 }

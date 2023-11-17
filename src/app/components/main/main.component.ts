@@ -12,7 +12,7 @@ export class MainComponent {
   products: any = [];
   category: string = "";
 
-  constructor(private service: APISService, private cart: CartService) {
+  constructor(private service: APISService, public cart: CartService) {
     service.getAllProduct().subscribe((resp: any) => {
       this.products = resp.products;
     });

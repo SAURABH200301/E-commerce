@@ -9,6 +9,7 @@ export class CartService {
   discountAmount: number = 0;
   visible: boolean = false;
   totalQuantity: number = 0;
+  message: string = "";
   constructor() {
     console.log(this.addedProducts)
   }
@@ -30,14 +31,17 @@ export class CartService {
       this.totalAmount += found.price;
       this.discountAmount += found.price * found.discountPercentage / 100;
     }
-    setInterval(() => {
+    this.message = "Item is added to the cart"
+    setTimeout(() => {
       this.visible = false;
+      this.message = "";
     }, 3000);
   }
 
 
   decreaseQuantity(id: any) {
     let found = this.addedProducts.find((ele: any) => ele.id === id)
+    this.visible=true;
     if (found.quantity == 1) {
       this.removeItemFromCart(id);
     } else {
@@ -46,6 +50,11 @@ export class CartService {
       this.totalAmount -= found.price;
       this.discountAmount -= found.price * found.discountPercentage / 100;
     }
+    this.message = "Item is removed to the cart"
+    setTimeout(() => {
+      this.visible = false;
+      this.message = "";
+    }, 3000);
   }
 
   removeItemFromCart(id: any) {

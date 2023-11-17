@@ -7,8 +7,6 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  quantity:number=0;
-  constructor(private cart: CartService){
-    this.quantity=this.cart.totalQuantity;
+  constructor(public cart: CartService) {
   }
 }
