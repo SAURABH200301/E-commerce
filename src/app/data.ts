@@ -1,5 +1,4 @@
-export const data = {
-    "products": [
+export const data = [
         {
             "id": 1,
             "title": "iPhone 9",
@@ -552,8 +551,4 @@ export const data = {
                 "https://i.dummyjson.com/data/products/30/thumbnail.jpg"
             ]
         }
-    ],
-    "total": 100,
-    "skip": 0,
-    "limit": 30
-}
+    ]

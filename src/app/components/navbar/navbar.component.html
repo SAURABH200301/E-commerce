@@ -13,11 +13,13 @@
                         <a class="nav-link active text-white" aria-current="page" [routerLink]="['/']">Home</a>
                     </li>
                 </ul>
-                <form class="d-flex " role="search">
-                    <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search" (ngSubmit)="searchProd(search)">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                        [(ngModel)]="search" name="search">
                     <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
                 </form>
-                <button class="me-3 btn ms-1 position-relative" >
+
+                <button class="me-3 btn ms-1 position-relative">
                     <a class="nav-link" [routerLink]="['/cart']">
                         <i class="bi bi-bag h5 text-white"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">

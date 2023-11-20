@@ -26,10 +26,7 @@ export class SideBarComponent {
   }
   fetchCategoryData(option: any) {
     this.option = option.name;
-    if (!option.isChecked) {
-      this.optionChange.emit("");
-    } else {
-      this.optionChange.emit(this.option);
-    }
+    this.optionChange.emit(option);
+
   }
 }

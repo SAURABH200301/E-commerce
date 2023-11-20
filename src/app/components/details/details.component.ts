@@ -25,7 +25,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.productId = params.get('id')!;
-      console.log('Product ID:', this.productId);
+      // console.log('Product ID:', this.productId);
       this.service.getSingleProduct(this.productId).subscribe((resp: any) => {
         this.productDetails = resp;
         console.log(resp)
