@@ -17,6 +17,7 @@ import { CartService } from './services/cart.service';
 import { CartComponent } from './components/cart/cart.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { SavedItemComponent } from './components/saved-item/saved-item.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RatingComponent } from './components/rating/rating.component';
     ProductCardComponent,
     CartComponent,
     ToastComponent,
-    RatingComponent
+    RatingComponent,
+    SavedItemComponent
   ],
   imports: [
     BrowserModule,

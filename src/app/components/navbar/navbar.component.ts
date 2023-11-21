@@ -10,9 +10,22 @@ import { CartService } from 'src/app/services/cart.service';
 export class NavbarComponent {
   search: string = ""
   constructor(public cart: CartService, public service: APISService) {
-    console.log(this.service.getItemsBySearch(this.search))
+    // console.log(this.service.getItemsBySearch(this.search))
   }
-  searchProd(word: string) {
-    this.service.getItemsBySearch(word);
+  searchProd(key: any) {
+    // console.log(key)
+    if (this.isLetter(key.key)) {
+      this.search += key.key;
+      this.service.getItemsBySearch(this.search);
+    } else if (key.key === "Backspace") {
+      this.search = this.search.slice(0, -1);
+      this.service.getItemsBySearch(this.search);
+    }
+    // console.log(this.search)
+
+
+  }
+  private isLetter(key: string): boolean {
+    return /^[a-zA-Z]$/.test(key);
   }
 }

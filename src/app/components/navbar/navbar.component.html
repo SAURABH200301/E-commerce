@@ -13,9 +13,9 @@
                         <a class="nav-link active text-white" aria-current="page" [routerLink]="['/']">Home</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search" (ngSubmit)="searchProd(search)">
+                <form class="d-flex" role="search" (keydown)="searchProd($event)">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                        [(ngModel)]="search" name="search">
+                         name="search">
                     <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
                 </form>
 

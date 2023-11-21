@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable, Subject, forkJoin } from 'rxjs';
 import { data } from '../data';
 
 @Injectable({
@@ -9,6 +9,15 @@ import { data } from '../data';
 export class APISService implements OnInit {
   products: any[] = [];
   categoryOption: string | undefined;
+
+  private searchEvent= new Subject<any>();
+
+  public eventState$ = this.searchEvent.asObservable();
+
+  public getTheproducts(state:any){
+    this.searchEvent.next(state);
+  }
+
   ngOnInit(): void {
     // this.getAllProduct();
   }
@@ -33,7 +42,8 @@ export class APISService implements OnInit {
   getItemsBySearch(word: string): void {
     // console.log(word)
     this.products = [...data.filter((prod: any) => prod.title.toLowerCase().includes(word.toLowerCase()))];
-    console.log(this.products)
+    // console.log(this.products)
+    this.getTheproducts(this.products);
   }
 
   getSingleProduct(id: string) {

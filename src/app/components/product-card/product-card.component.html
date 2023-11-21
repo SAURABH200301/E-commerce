@@ -32,8 +32,8 @@
                 </div>
             </button>
             <span class="mt-2">
-                <span (click)="getLiked()" *ngIf="!liked"><i class="bi bi-heart "></i></span>
-                <span (click)="getLiked()" *ngIf="liked"><i class="bi bi-heart-fill h5" style="color: red;"></i></span>
+                <span (click)="getLiked(product)" *ngIf="!liked"><i class="bi bi-heart "></i></span>
+                <span (click)="getLiked(product)" *ngIf="liked"><i class="bi bi-heart-fill h5" style="color: red;"></i></span>
             </span>
         </div>
     </div>

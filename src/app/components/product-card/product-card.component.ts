@@ -11,11 +11,16 @@ export class ProductCardComponent {
   liked: boolean = false;
   constructor(private cart: CartService) {
   }
-  getLiked(){
-    this.liked=!this.liked
+  getLiked(prod:any){
+    this.liked=!this.liked;
+    if(this.liked){
+      this.cart.addLike(prod);
+    }else{
+      this.cart.removeLike(prod);
+    }
   }
   addItem(item: any) {
     this.cart.addTocart(item);
-    console.log("item added", this.cart.addedProducts)
+    // console.log("item added", this.cart.addedProducts)
   }
 }

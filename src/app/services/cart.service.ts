@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,29 @@ export class CartService {
   visible: boolean = false;
   totalQuantity: number = 0;
   message: string = "";
+  likedImages: any[] = [];
+
+  private SavedEvent = new Subject<any>();
+
+  public eventState$ = this.SavedEvent.asObservable();
+
+  public getSavedItems(state: any) {
+    this.SavedEvent.next(state);
+  }
+
   constructor() {
-    console.log(this.addedProducts)
+    // console.log(this.addedProducts)
+  }
+
+  addLike(liked: any) {
+    this.likedImages.push(liked);
+    this.getSavedItems(this.likedImages);
+    // console.log(this.likedImages)
+  }
+  removeLike(liked: any) {
+    this.likedImages = this.likedImages.filter((like) => like.id !== liked.id)
+    this.getSavedItems(this.likedImages);
+    // console.log(this.likedImages)
   }
 
   //will work for both add the extra quantity and add new item
@@ -41,7 +63,7 @@ export class CartService {
 
   decreaseQuantity(id: any) {
     let found = this.addedProducts.find((ele: any) => ele.id === id)
-    this.visible=true;
+    this.visible = true;
     if (found.quantity == 1) {
       this.removeItemFromCart(id);
     } else {
