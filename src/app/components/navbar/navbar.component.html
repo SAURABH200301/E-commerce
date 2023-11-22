@@ -12,13 +12,20 @@
                     <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" [routerLink]="['/']">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" [routerLink]="['/grid']">Grid</a>
+                    </li>
                 </ul>
                 <form class="d-flex" role="search" (keydown)="searchProd($event)">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
                          name="search">
                     <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
                 </form>
-
+                <button class=" btn ms-1 position-relative">
+                    <a class="nav-link" [routerLink]="['/likedItem']">
+                        <i class="bi bi-heart-fill h5 colorHover" ></i>
+                    </a>
+                </button>
                 <button class="me-3 btn ms-1 position-relative">
                     <a class="nav-link" [routerLink]="['/cart']">
                         <i class="bi bi-bag h5 text-white"></i>

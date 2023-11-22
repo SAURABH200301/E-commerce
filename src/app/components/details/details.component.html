@@ -7,8 +7,8 @@
             <div class="d-flex justify-content-between">
                 <p>{{productDetails.brand}}</p>
                 <span class="mt-2">
-                    <span (click)="getLiked()" *ngIf="!liked"><i class="bi bi-heart h5"></i></span>
-                    <span (click)="getLiked()" *ngIf="liked"><i class="bi bi-heart-fill h5"
+                    <span (click)="getLiked(productDetails)" *ngIf="!liked"><i class="bi bi-heart h5"></i></span>
+                    <span (click)="getLiked(productDetails)" *ngIf="liked"><i class="bi bi-heart-fill h5"
                             style="color: red;"></i></span>
                 </span>
             </div>

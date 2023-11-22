@@ -18,6 +18,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { SavedItemComponent } from './components/saved-item/saved-item.component';
+import { GridComponent } from './components/grid/grid.component';
+import { CellComponent } from './components/cell/cell.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { SavedItemComponent } from './components/saved-item/saved-item.component
     CartComponent,
     ToastComponent,
     RatingComponent,
-    SavedItemComponent
+    SavedItemComponent,
+    GridComponent,
+    CellComponent
   ],
   imports: [
     BrowserModule,

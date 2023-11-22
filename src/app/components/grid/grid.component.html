@@ -1,0 +1,26 @@
+<div>
+    <form class="mx-5" (ngSubmit)="createGrid()">
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Rows</span>
+            <input type="number" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" [(ngModel)]="numberRows" name="numberRows" required>
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Columns</span>
+            <input type="number" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm" [(ngModel)]="numberCol" name="numberCol" required>
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Create</button>
+    </form>
+
+    <div *ngIf="grid.length === 0" class="d-flex justify-content-center">
+        <p>No grid</p>
+    </div>
+
+    <div *ngIf="grid.length !== 0" class="m-3">
+        <div *ngFor="let i of grid" class="d-flex flex-row">
+                <app-cell [columns]="i"></app-cell>
+           
+            <br>
+        </div>
+    </div>

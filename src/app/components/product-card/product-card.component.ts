@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -6,10 +6,17 @@ import { CartService } from 'src/app/services/cart.service';
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.css']
 })
-export class ProductCardComponent {
+export class ProductCardComponent implements OnInit {
   @Input() product: any
   liked: boolean = false;
   constructor(private cart: CartService) {
+    
+
+  }
+  ngOnInit(): void {
+    if(this.cart.likedImages.find((item)=>item.id===this.product.id)){
+      this.liked=true
+    }
   }
   getLiked(prod:any){
     this.liked=!this.liked;

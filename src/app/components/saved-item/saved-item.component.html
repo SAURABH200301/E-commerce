@@ -1,4 +1,34 @@
-<!-- <div *ngIf="this.products.length!==0"> -->
-    {{this.products|json}}
-    <div *ngFor="let prod of products">{{prod}}</div>
-<!-- </div> -->
+<div *ngIf="cart.likedImages.length!==0">
+    <div class="d-flex flex-column">
+        <div class="">
+            <div class="m-5 row border p-2 rounded " *ngFor="let item of cart.likedImages">
+                <div class="col-sm-6 p-3 pointer border-end d-flex justify-content-center"
+                    [routerLink]="['/details/'+item.id]">
+                    <img style="width: 220px;" [src]="item.images[0]" [alt]="item.title">
+                </div>
+                <div class="col-sm-6 py-3 ">
+                    <div class="" [routerLink]="['/details/'+item.id]">
+                        <div class="d-flex justify-content-between">
+                            <p class="fw-bold">{{item.title}}</p>
+                            <span class="mt-2">
+                                <span (click)="getLiked(item)" *ngIf="!liked"><i class="bi bi-heart "></i></span>
+                                <span (click)="getLiked(item)" *ngIf="liked"><i class="bi bi-heart-fill h5"
+                                        style="color: red;"></i></span>
+                            </span>
+                        </div>
+                        <p><i>{{item.brand}}</i></p>
+                        <p>{{item.description}}</p>
+                        <app-rating [rating]="item.rating"></app-rating>
+                        <p class="">
+                            <span class="me-2 fw-bolder">{{item.price-(item.price*item.discountPercentage/100)|
+                                currency: 'USD':
+                                'symbol':'1.2-2' }}</span>
+                            <span style="color: grey; font-size: 12px;"><s>{{item.price| currency: 'USD':
+                                    'symbol':'1.2-2' }}</s></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

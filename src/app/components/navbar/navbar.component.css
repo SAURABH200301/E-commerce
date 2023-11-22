@@ -1,0 +1,6 @@
+.colorHover{
+    color: white;
+}
+.colorHover:hover{
+    color:rgb(252, 133, 133);
+}
