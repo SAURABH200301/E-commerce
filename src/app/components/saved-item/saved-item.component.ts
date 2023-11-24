@@ -9,7 +9,7 @@ export class SavedItemComponent implements OnInit {
 
   liked: boolean = true;
   constructor(public cart: CartService) {
-    console.log(this.cart.likedImages);
+    // console.log(this.cart.likedImages);
   }
   ngOnInit(): void {
     this.cart.eventState$.subscribe(state => {

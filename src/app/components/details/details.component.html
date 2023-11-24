@@ -1,6 +1,7 @@
 <div class="m-5 row">
     <div class="col-md-6   rounded-2 p-3">
-        <img class=" shadow rounded" [src]="productDetails.images[0]" [alt]="productDetails">
+        <img class=" shadow rounded" [src]="productDetails.images[0] || productDetails.images[1]"
+            [alt]="productDetails.title">
     </div>
     <div class="col-md-6">
         <div class="m-5">

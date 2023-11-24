@@ -1,3 +1,10 @@
+<div class="d-flex justify-content-center">
+    <h3>
+        <i class="bi bi-heart-fill h5" style="color: black;"></i>
+        Saved Items
+        <i class="bi bi-heart-fill h5" style="color: black;"></i>
+    </h3>
+</div>
 <div *ngIf="cart.likedImages.length!==0">
     <div class="d-flex flex-column">
         <div class="">
@@ -31,4 +38,7 @@
             </div>
         </div>
     </div>
+</div>
+<div *ngIf="cart.likedImages.length===0" class="d-flex justify-content-center">
+    <p>You did not find any likeable item. :(</p>
 </div>

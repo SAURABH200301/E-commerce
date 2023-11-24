@@ -18,9 +18,8 @@
     </div>
 
     <div *ngIf="grid.length !== 0" class="m-3">
-        <div *ngFor="let i of grid" class="d-flex flex-row">
-                <app-cell [columns]="i"></app-cell>
-           
-            <br>
+        <div *ngFor="let i of grid" class="">
+            <app-cell [columns]="i"></app-cell>
+            
         </div>
     </div>

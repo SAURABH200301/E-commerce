@@ -14,24 +14,22 @@ export class DetailsComponent implements OnInit {
   liked: boolean = true;
 
   ngOnInit() {
-
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.productId = params.get('id')!;
       this.service.getSingleProduct(this.productId).subscribe((resp: any) => {
         this.productDetails = resp;
       })
+      if (this.cart.likedImages.find((item) => item.id === Number(this.productId))) {
+        // console.log(this.productId)
+        this.liked = true;
+      } else {
+        this.liked = false
+      }
     });
-    if (this.cart.likedImages.find((item) => item.id === this.productId)) {
-      console.log(this.productId)
-      this.liked = true;
-    }else{
-      this.liked=false
-    }
-    
   }
 
   constructor(private route: ActivatedRoute, private service: APISService, private cart: CartService) {
-
+    
   }
 
   addCart(id: any) {
@@ -45,6 +43,4 @@ export class DetailsComponent implements OnInit {
       this.cart.removeLike(prod);
     }
   }
-
-
 }
